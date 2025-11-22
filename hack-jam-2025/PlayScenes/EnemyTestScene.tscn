@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://cqbyw067fcmqf"]
+[gd_scene load_steps=3 format=3 uid="uid://cqbyw067fcmqf"]
+
+[ext_resource type="Texture2D" uid="uid://bpqwbrnaqtjnn" path="res://Assets/1601.m10.i311.n029.S.c10.164511620 Seamless green grass vector pattern.jpg" id="1_wpajt"]
+[ext_resource type="PackedScene" uid="uid://ckfv5l4q0glpn" path="res://Scenes/Player.tscn" id="2_oiwvt"]
 
 [node name="EnemyTestScene" type="Node2D"]
+
+[node name="Grass Background" type="Sprite2D" parent="."]
+modulate = Color(0.50590295, 0.2551712, 0.25576818, 1)
+position = Vector2(11, 8)
+scale = Vector2(0.7364445, 0.70622224)
+texture = ExtResource("1_wpajt")
+
+[node name="Player" parent="." instance=ExtResource("2_oiwvt")]
+position = Vector2(-201, 473)
