@@ -1,25 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckfv5l4q0glpn"]
+[gd_scene load_steps=6 format=3 uid="uid://ckfv5l4q0glpn"]
 
 [ext_resource type="Script" uid="uid://oqjpu4h4r40e" path="res://Scripts/player.gd" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://bcakq3ngbrpq7" path="res://Assets/white-square.png" id="2_dewec"]
 [ext_resource type="Script" uid="uid://bdjraq37sf5jf" path="res://Scripts/dash_pointer.gd" id="2_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://bpqwbrnaqtjnn" path="res://Assets/1601.m10.i311.n029.S.c10.164511620 Seamless green grass vector pattern.jpg" id="3_gntrk"]
+[ext_resource type="Texture2D" uid="uid://cts3gyqyrjsn4" path="res://Assets/white-circle.png" id="3_gntrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(18, 18)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dash_position", "player_sprite")]
 script = ExtResource("1_rpqav")
+dash_length = null
+dash_position = NodePath("DashPointer/WhiteCircle")
+player_sprite = NodePath("WhiteSquare")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.35, 0.35)
+position_smoothing_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-size_flags_horizontal = 0
-size_flags_vertical = 4
+[node name="WhiteSquare" type="Sprite2D" parent="."]
+position = Vector2(-1.9073486e-06, -5.722046e-06)
+scale = Vector2(0.055555567, 0.055555567)
+texture = ExtResource("2_dewec")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
@@ -28,7 +30,7 @@ shape = SubResource("RectangleShape2D_kyqiw")
 [node name="DashPointer" type="Node2D" parent="."]
 script = ExtResource("2_kyqiw")
 
-[node name="placeholder" type="Sprite2D" parent="DashPointer"]
-position = Vector2(147, -0.99999994)
-scale = Vector2(0.057388887, 0.0038888343)
+[node name="WhiteCircle" type="Sprite2D" parent="DashPointer"]
+position = Vector2(100, 0)
+scale = Vector2(0.01666667, 0.01666667)
 texture = ExtResource("3_gntrk")

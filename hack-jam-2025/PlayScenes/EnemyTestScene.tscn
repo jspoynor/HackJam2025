@@ -8,8 +8,15 @@
 [node name="Grass Background" type="Sprite2D" parent="."]
 modulate = Color(0.50590295, 0.2551712, 0.25576818, 1)
 position = Vector2(11, 8)
-scale = Vector2(0.7364445, 0.70622224)
+scale = Vector2(1.4884447, 1.3591112)
 texture = ExtResource("1_wpajt")
 
-[node name="Player" parent="." instance=ExtResource("2_oiwvt")]
-position = Vector2(-201, 473)
+[node name="Grass Background2" type="Sprite2D" parent="."]
+modulate = Color(0.50590295, 0.2551712, 0.25576818, 1)
+position = Vector2(11, 8)
+scale = Vector2(1.4884447, 1.3591112)
+texture = ExtResource("1_wpajt")
+
+[node name="Player" parent="." node_paths=PackedStringArray("game_scene") instance=ExtResource("2_oiwvt")]
+dash_length = 500.0
+game_scene = NodePath(".")
